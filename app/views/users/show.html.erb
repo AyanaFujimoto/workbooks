@@ -1,13 +1,19 @@
-<div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %>さんのMy Page</h3>
-      </div>
+<div class = 'container'>
+  <div class="row">
+    <div class="col-sm-４">
+      <h5><%= @user.name %>さんのMy Page</h5>
     </div>
-  </aside>
-  <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
+    <div class="offset-sm-4 col-sm-4">
+      <%= link_to 'アカウントの編集', edit_user_path(@user), class: 'btn btn-info' %>
+    </div>
+  </div>
+  
+  <div>
+    <h6>進捗メーター</h6>
+  </div>
+    
+  <div class="row">
+    <ul class="nav nav-tabs nav-fill w-100 nav-justified">
       <li class="nav-item"><a href="#" class="nav-link">正解</a></li>
       <li class="nav-item"><a href="#" class="nav-link">不正解/未回答</a></li>
       <li class="nav-item"><a href="#" class="nav-link">チェックリスト</a></li>
