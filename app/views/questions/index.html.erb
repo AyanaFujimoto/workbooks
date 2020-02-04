@@ -1,2 +1,17 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+
+<ul class="list-unstyled">
+  <% @questions.each do |question| %>
+    <li>
+      <div>
+        <h6>問題<%= question.id %></h6>
+        <%= question.question %>
+      </div>
+      <div>
+        <a href = '#'>> 詳細へ</a>
+        <ul class="dropdown-divider"></ul>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= paginate @questions %>
