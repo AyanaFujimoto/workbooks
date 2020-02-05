@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users
   resources :questions do
+    resources :question_answer, only: [:show], module: 'questions'
     resources :question_settings, only: [:index], module: 'questions'
     resources :question_result, only: [:show], module: 'questions'
   end
