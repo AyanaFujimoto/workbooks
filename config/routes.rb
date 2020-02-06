@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :questions do
     resources :question_answer, only: [:show], module: 'questions'
     resources :question_settings, only: [:index], module: 'questions'
-    resources :question_result, only: [:show], module: 'questions'
+    resources :question_result, only: [:index], module: 'questions'
   end
 end

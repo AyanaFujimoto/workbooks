@@ -1,4 +1,4 @@
 class Questions::QuestionAnswerController < ApplicationController
-  def show
+  def index
   end
 end
