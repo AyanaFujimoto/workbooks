@@ -4,7 +4,17 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    # @question = Question.find(params[:id])
+    
+    @questions_count = session[:question_num]
+    
+    q_ids = Question.all.pluck(:id)
+    @shuffled_ids = q_ids.shuffle
+    
+    # @questions = shuffled_ids[0..9].map do |qid|
+    @questions = @shuffled_ids[0].tap do |qid|  
+       Question.find(qid)
+    end
   end
 
   def new

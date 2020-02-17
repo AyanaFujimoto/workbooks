@@ -1,0 +1,19 @@
+<div class = 'mb-4'>
+  <h4>▷ ランダム出題</h4>
+</div>
+
+<div class = 'row'>
+  <p>出題数</p>
+  
+  <div class="col-sm-4 mb-4">
+    <%= form_with(url: question_settings_path, scope: :session, local: true) do |q| %>
+      <div class="form-group col-sm-4">
+        <%= q.text_field :question_num, class: 'form-control' %>
+      </div>
+      
+      <%= q.submit 'スタート', class: 'btn btn-primary btn-block' %>
+    <% end %>
+    
+    <button type="button" class="btn btn-secondary col-sm-4">TOPへ</button>
+  </div>
+</div>
