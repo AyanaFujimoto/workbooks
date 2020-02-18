@@ -2,15 +2,12 @@
   <div class = 'col-sm-4 mb-4'>
     <h4>正解！</h4>
   </div>
-  <div class = 'offset-sm-4 col-sm-4'>
-    <button type="button" class="btn btn-outline-warning">☆チェックをつける</button>
-  </div>
 </div>
 
 <p>問題</p>
 <div class = 'card mb-4'>
   <div class="card-body">
-    ここに問題を表示します
+    <%= @question.question %>
   </div>
 </div>
 
@@ -24,14 +21,17 @@
 <p>解説</p>
 <div class = 'card mb-4'>
   <div class="card-body">
-    ここに解説を表示します
+    <%= @question.explanation %>
   </div>
 </div>
 
 <div>
-  <button type="button" class="btn btn-secondary col-sm-2">TOPへ</button>
-  <button type="button" class="btn btn-primary offset-sm-7 col-sm-2">次へ</button>
+  <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary col-sm-2' %>
+  <% if @current_q_num + 1 == @q_length %>
+    <%= link_to '結果へ', question_result_index_path, class: 'btn btn-primary offset-sm-7 col-sm-2' %>
+  <% else %>
+    <% next_num = @current_q_num + 1 %>
+    <% next_id = @qid_list[next_num] %>
+    <%= link_to '次へ', question_select_path(next_id), class: 'btn btn-primary offset-sm-7 col-sm-2' %>
+  <% end %>
 </div>
-
-
-

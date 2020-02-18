@@ -1,10 +1,8 @@
 <div class = 'row'>
   <div class = 'col-sm-4 mb-4'>
     <h4>モード：ランダム出題</h4>
-    <h6>出題数：<%= @questions_count %></h6>
-  </div>
-  <div class = 'offset-sm-4 col-sm-4'>
-    <button type="button" class="btn btn-outline-warning">☆チェックをつける</button>
+    <h6>問題id: <%= @question.id %></h6>
+    <!--<h6>出題数：<%= @questions_count %></h6>-->
   </div>
 </div>
 
@@ -12,21 +10,19 @@
 
 <div class = 'card mb-4'>
   <div class="card-body">
-    ここに問題を表示します
-    <%= @shuffled_ids %>
-    <%= @questions %>
+    <%= @question.question %>
   </div>
 </div>
 
 <div class = 'mb-4'>
   <p>選択肢</p>
-  <button type="button" class="btn btn-outline-secondary btn-block">選択肢 1</button>
-  <button type="button" class="btn btn-outline-secondary btn-block">選択肢 2</button>
-  <button type="button" class="btn btn-outline-secondary btn-block">選択肢 3</button>
-  <button type="button" class="btn btn-outline-secondary btn-block">選択肢 4</button>
+  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_1 %></button>
+  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_2 %></button>
+  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_3 %></button>
+  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_4 %></button>
 </div>
 
 <div>
-  <button type="button" class="btn btn-secondary col-sm-2">TOPへ</button>
-  <button type="button" class="btn btn-primary offset-sm-7 col-sm-2">解説へ</button>
+  <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary col-sm-2' %>
+  <%= link_to '解説へ', question_answer_path(@question), class: 'btn btn-primary offset-sm-7 col-sm-2' %>
 </div>

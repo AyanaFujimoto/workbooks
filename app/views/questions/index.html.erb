@@ -7,7 +7,7 @@
         <%= question.question %>
       </div>
       <div>
-        <a href = '#'>> 詳細へ</a>
+        <%= link_to '> 詳細へ', question_answer_path(question.id) %>
         <ul class="dropdown-divider"></ul>
       </div>
     </li>
