@@ -2,7 +2,6 @@
   <div class = 'col-sm-4 mb-4'>
     <h4>モード：ランダム出題</h4>
     <h6>問題id: <%= @question.id %></h6>
-    <!--<h6>出題数：<%= @questions_count %></h6>-->
   </div>
 </div>
 
@@ -16,13 +15,29 @@
 
 <div class = 'mb-4'>
   <p>選択肢</p>
-  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_1 %></button>
-  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_2 %></button>
-  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_3 %></button>
-  <button type="button" class="btn btn-outline-secondary btn-block"><%= @question.option_4 %></button>
+  <%= form_with(url: question_answer_path(@question), scope: :session, local: true, method: :get) do |form| %>
+    <ul>
+      <ul>
+        <%= form.radio_button :user_answer, :"1" %>
+        <%= form.label :user_answer, @question.option_1, {value: :"1", style: "display: inline-block;"} %>
+      </ul>
+      <ul>
+        <%= form.radio_button :user_answer, :"2" %>
+        <%= form.label :user_answer, @question.option_2, {value: :"2", style: "display: inline-block;"} %>
+      </ul>
+      <ul>
+        <%= form.radio_button :user_answer, :"3" %>
+        <%= form.label :user_answer, @question.option_3, {value: :"3", style: "display: inline-block;"} %>
+      </ul>
+      <ul>
+        <%= form.radio_button :user_answer, :"4" %>
+        <%= form.label :user_answer, @question.option_4, {value: :"4", style: "display: inline-block;"} %>
+      </ul>
+      <%= form.submit '解説へ', class: 'btn btn-primary btn-block' %>
+    </ul>
+  <% end %>
 </div>
 
 <div>
-  <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary col-sm-2' %>
-  <%= link_to '解説へ', question_answer_path(@question), class: 'btn btn-primary offset-sm-7 col-sm-2' %>
+  <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary btn-block' %>
 </div>

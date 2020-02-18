@@ -1,6 +1,11 @@
 <div class = 'row'>
   <div class = 'col-sm-4 mb-4'>
-    <h4>正解！</h4>
+    <% if @user_answer_id == @question.true_option_id %>
+      <h4>正解！</h4>
+    <% else %>
+      <h4>不正解...</h4>
+    <% end %>
+    <h6>問題id: <%= @question.id %></h6>
   </div>
 </div>
 
@@ -14,6 +19,7 @@
 <p>解答</p>
 <div class = 'card mb-4'>
   <div class="card-body">
+    <
     ここに正解の選択肢を表示します
   </div>
 </div>
