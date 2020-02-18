@@ -2,10 +2,10 @@
   <h4>モード：ランダム出題</h4>
 </div>
 
-<div class = 'row'>
+<div>
   <p>出題数</p>
   
-  <div class="col-sm-4 mb-4">
+  <div class: 'mb-4'>
     <%= form_with(url: question_settings_path, scope: :session, local: true, method: :post) do |q| %>
       <div class="form-group col-sm-4">
         <%= q.text_field :question_num, class: 'form-control' %>
@@ -13,8 +13,11 @@
       
       <%= q.submit 'スタート', class: 'btn btn-primary btn-block' %>
     <% end %>
-
   </div>
-    <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary' %>
+
 </div>
+<div>
+  <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary btn-block mt-4' %>
+</div>
+
 
