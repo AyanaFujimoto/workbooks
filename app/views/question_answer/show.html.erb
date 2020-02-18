@@ -16,11 +16,12 @@
   </div>
 </div>
 
-<p>解答</p>
+<p>正解の選択肢</p>
 <div class = 'card mb-4'>
   <div class="card-body">
-    <% options = [@question.option_1, @question.option_2, @question.option_3, @question.option_4] %>
-    <% true_option = options[@true_option_id -1] %>
+    <% options = ['', @question.option_1, @question.option_2, @question.option_3, @question.option_4] %>
+    <% true_num = @question.true_option_id %>
+    <% true_option = options[true_num] %>
     <%= true_option %>
   </div>
 </div>
@@ -35,7 +36,7 @@
 <div>
   <%= link_to 'TOPへ', users_path, class: 'btn btn-secondary col-sm-2' %>
   <% if @current_q_num + 1 == @q_length %>
-    <%= link_to '結果へ', question_result_index_path, class: 'btn btn-primary offset-sm-7 col-sm-2' %>
+    
   <% else %>
     <% next_num = @current_q_num + 1 %>
     <% next_id = @qid_list[next_num] %>
